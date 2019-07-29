@@ -6,7 +6,7 @@ const Image = require('sdl2-image').class('image');
 const ref = require('ref');
 
 /**
- * Retrieve Top 25 Zoom Rooms with issues
+ * Create a window on the desktop containing an image that closes when clicked or the return callback is executed.
  *
  * @param {string} src - Path to image file
  * @param {number} x - X coordinate at which to place the image button

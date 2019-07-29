@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40bunchtogether%2Fdesktop-window-button.svg)](http://badge.fury.io/js/%40bunchtogether%2Fdesktop-window-button)
 
-Minimal, cross-browser desktop window button which renders an image on the screen.
+Minimal, cross-browser library which creates a window on the desktop containing an image that closes when clicked or the return callback is executed.
 
 Implemented using [node-sdl2](https://www.npmjs.com/package/node-sdl2).
 
@@ -44,7 +44,7 @@ run();
 
 ### openDesktopWindowButton
 
-Retrieve Top 25 Zoom Rooms with issues
+Create a window on the desktop containing an image that closes when clicked or the return callback is executed.
 
 #### Parameters
 
