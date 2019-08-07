@@ -4,7 +4,7 @@ const App = require('node-sdl2/lib/app');
 const Window = require('node-sdl2/lib/window');
 const Image = require('sdl2-image').class('image');
 const ref = require('ref');
-
+const { keepOnTop } = require('@bunchtogether/picture-in-picture');
 /**
  * Create a window on the desktop containing an image that closes when clicked or the return callback is executed.
  *
@@ -27,7 +27,7 @@ const openDesktopWindowButton = (src: string, x:number, y:number, callback:() =>
     resizable: false,
     borderless: true,
   });
-  win.render.copy(image.texture(win.render), null, [0, 0, w * 2, h * 2]);
+  win.render.copy(image.texture(win.render), null, [0, 0, w, h]);
   win.render.present();
   let isClosed = false;
   const close = () => {
@@ -51,6 +51,9 @@ const openDesktopWindowButton = (src: string, x:number, y:number, callback:() =>
   app.on('before-quit', handleBeforeQuit);
   win.on('close', handleClose);
   win.on('mousedown', handleMouseDown);
+  keepOnTop(process.pid, true).catch((error) => {
+    console.log(`Keep on top method failed: ${error.message}`);
+  });
   return close;
 };
 

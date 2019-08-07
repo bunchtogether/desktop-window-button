@@ -947,6 +947,22 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@bunchtogether/exit-handler@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@bunchtogether/exit-handler/-/exit-handler-1.0.0.tgz#350caef9ef93e047080d1139a22e818098eea290"
+  integrity sha512-8lk/zWnOiWtS+4XqK/qNpEv8Ktz5AQSyiSxm46n29uCaDQ2DVKdwPFE/HqW8tVAQBWvcQ0uNMqSyYc4X+VIv6g==
+
+"@bunchtogether/picture-in-picture@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@bunchtogether/picture-in-picture/-/picture-in-picture-1.0.4.tgz#917495af100a2db7f65d18fd2408982df1973b55"
+  integrity sha512-Dv6NpacnWyHBVv2qmj7CiXblcE1N0By1Y4sg+LsemAFxUL0wdCLDu/8E4uKMBL8ZVIsGfv3LmKSULCtf1jwHAg==
+  dependencies:
+    "@bunchtogether/exit-handler" "^1.0.0"
+    ffi "^2.3.0"
+    node-osascript "^2.1.0"
+    ref "^1.3.5"
+    ref-struct "^1.1.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -1682,7 +1698,7 @@ buffer-shims@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-shims/-/buffer-shims-1.0.0.tgz#9978ce317388c649ad8793028c3477ef044a8b51"
 
-buffers@~0.1.1:
+buffers@^0.1.1, buffers@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/buffers/-/buffers-0.1.1.tgz#b24579c3bed4d6d396aeee6d9a8ae7f5482ab7bb"
 
@@ -2816,7 +2832,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-ffi@^2.0.0:
+ffi@^2.0.0, ffi@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/ffi/-/ffi-2.3.0.tgz#fa1a7b3d85c0fa8c83d96947a64b5192bc47f858"
   integrity sha512-vkPA9Hf9CVuQ5HeMZykYvrZF2QNJ/iKGLkyDkisBnoOOFeFXZQhUPxBARPBIZMJVulvBI2R+jgofW03gyPpJcQ==
@@ -2992,6 +3008,15 @@ fs-extra@^7.0.0:
   integrity sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==
   dependencies:
     graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
+fs-extra@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
+  integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
+  dependencies:
+    graceful-fs "^4.2.0"
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
@@ -3217,6 +3242,11 @@ graceful-fs@^4.1.15:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==
+
+graceful-fs@^4.2.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.1.tgz#1c1f0c364882c868f5bff6512146328336a11b1d"
+  integrity sha512-b9usnbDGnD928gJB3LrCmxoibr3VE4U2SMo5PBuBnokWyDADTqDPXg4YpwKF1trpH+UbGp7QLicO3+aWEy0+mw==
 
 growly@^1.3.0:
   version "1.3.0"
@@ -4862,6 +4892,13 @@ node-notifier@^5.2.1:
     shellwords "^0.1.1"
     which "^1.3.0"
 
+node-osascript@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/node-osascript/-/node-osascript-2.1.0.tgz#217db348db32d4d045e5bc1a3b3ac25545734a68"
+  integrity sha512-rW2vA0OGDGtoB+Ek6tKA7OYsBVzPZucHHssPsCbjOHJEcMLbHCDo+9UjgNX1tUIaSfMUtDLtEqY7JdIIINCkXQ==
+  dependencies:
+    buffers "^0.1.1"
+
 node-pre-gyp@^0.10.0:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.10.3.tgz#3070040716afdc778747b61b6887bf78880b80fc"
@@ -5642,7 +5679,7 @@ ref-array@^1.1.2:
     debug "2"
     ref "1"
 
-ref-struct@1, ref-struct@^1.0.2:
+ref-struct@1, ref-struct@^1.0.2, ref-struct@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ref-struct/-/ref-struct-1.1.0.tgz#5d5ee65ad41cefc3a5c5feb40587261e479edc13"
   integrity sha1-XV7mWtQc78Olxf60BYcmHkee3BM=
@@ -5983,7 +6020,7 @@ rimraf@2, rimraf@^2.5.4, rimraf@^2.6.1:
   dependencies:
     glob "^7.0.5"
 
-rimraf@2.6.3, rimraf@^2.6.2:
+rimraf@2.6.3, rimraf@^2.6.2, rimraf@^2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
