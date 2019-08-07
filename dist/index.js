@@ -45,12 +45,16 @@ const openDesktopWindowButton = (src        , x       , y       , callback      
   const handleClose = () => {
     close();
   };
+  const handleFocus = () => {
+    close();
+  };
   const handleMouseDown = () => {
     close();
   };
   app.on('before-quit', handleBeforeQuit);
   win.on('close', handleClose);
   win.on('mousedown', handleMouseDown);
+  win.on('focus', handleFocus);
   keepOnTop(process.pid, true).catch((error) => {
     console.log(`Keep on top method failed: ${error.message}`);
   });

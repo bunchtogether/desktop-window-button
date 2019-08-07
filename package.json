@@ -1,6 +1,6 @@
 {
   "name": "@bunchtogether/desktop-window-button",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "repository": "https://github.com/bunchtogether/desktop-window-button.git",
   "author": "John Wehr <johnwehr@bunchenterprise.com>",
