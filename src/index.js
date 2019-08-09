@@ -4,7 +4,23 @@ const App = require('node-sdl2/lib/app');
 const Window = require('node-sdl2/lib/window');
 const Image = require('sdl2-image').class('image');
 const ref = require('ref');
-const { keepOnTop } = require('@bunchtogether/picture-in-picture');
+const { keepOnTop, getScreenDimensions } = require('@bunchtogether/picture-in-picture');
+const { addShutdownHandler } = require('@bunchtogether/exit-handler');
+
+let app;
+let dimensions;
+
+const shutdown = async () => {
+  if (app) {
+    app.quit();
+  }
+};
+
+addShutdownHandler(shutdown, (error:Error) => {
+  console.log('Error shutting down desktop window button app');
+  console.error(error);
+});
+
 /**
  * Create a window on the desktop containing an image that closes when clicked or the return callback is executed.
  *
@@ -14,20 +30,39 @@ const { keepOnTop } = require('@bunchtogether/picture-in-picture');
  * @param {Function} callback - Callback called when the image button is clicked or closed by the returned function
  * @returns {Function} - Close the desktop window button
  */
-const openDesktopWindowButton = (src: string, x:number, y:number, callback:() => void) => {
-  const app = new App();
+const openDesktopWindowButton = async (src: string, x:number, y:number, callback:() => void, alignment?:string = 'top left') => {
+  if (!app) {
+    app = new App();
+  }
   const image = new Image(src);
   const { w, h } = ref.deref(image._surface); // eslint-disable-line no-underscore-dangle
+  const width = Math.floor(w / 2);
+  const height = Math.floor(h / 2);
+  let adjustedX = x;
+  let adjustedY = y;
+  if (alignment.indexOf('bottom') !== -1) {
+    if (!dimensions) {
+      dimensions = await getScreenDimensions();
+    }
+    adjustedY = dimensions[1] - y - height;
+  }
+  if (alignment.indexOf('right') !== -1) {
+    if (!dimensions) {
+      dimensions = await getScreenDimensions();
+    }
+    adjustedX = dimensions[0] - x - width;
+  }
   const win = new Window({
-    w,
-    h,
-    x,
-    y,
+    w: width,
+    h: height,
+    x: adjustedX,
+    y: adjustedY,
     closable: false,
     resizable: false,
     borderless: true,
+    mouseCapture: true,
   });
-  win.render.copy(image.texture(win.render), null, [0, 0, w, h]);
+  win.render.copy(image.texture(win.render), null, [0, 0, width, height]);
   win.render.present();
   let isClosed = false;
   const close = () => {
@@ -35,12 +70,16 @@ const openDesktopWindowButton = (src: string, x:number, y:number, callback:() =>
       return;
     }
     isClosed = true;
-    app.quit();
     win.destroy();
     callback();
   };
   const handleBeforeQuit = (e:Event) => {
     e.preventDefault();
+    app.removeListener('before-quit', handleBeforeQuit);
+    win.removeListener('close', handleClose);
+    win.removeListener('mousedown', handleMouseDown);
+    win.removeListener('mouseup', handleMouseUp);
+    win.removeListener('focus', handleFocus);
   };
   const handleClose = () => {
     close();
@@ -51,13 +90,15 @@ const openDesktopWindowButton = (src: string, x:number, y:number, callback:() =>
   const handleMouseDown = () => {
     close();
   };
+  const handleMouseUp = () => {
+    close();
+  };
   app.on('before-quit', handleBeforeQuit);
   win.on('close', handleClose);
   win.on('mousedown', handleMouseDown);
+  win.on('mouseup', handleMouseUp);
   win.on('focus', handleFocus);
-  keepOnTop(process.pid, true).catch((error) => {
-    console.log(`Keep on top method failed: ${error.message}`);
-  });
+  await keepOnTop(process.pid, true);
   return close;
 };
 
