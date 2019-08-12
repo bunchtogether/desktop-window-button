@@ -1,6 +1,6 @@
 {
   "name": "@bunchtogether/desktop-window-button",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "repository": "https://github.com/bunchtogether/desktop-window-button.git",
   "author": "John Wehr <johnwehr@bunchenterprise.com>",
@@ -60,7 +60,7 @@
   },
   "dependencies": {
     "@bunchtogether/exit-handler": "^1.0.0",
-    "@bunchtogether/picture-in-picture": "^1.0.6",
+    "@bunchtogether/picture-in-picture": "^1.0.8",
     "fs-extra": "^8.1.0",
     "lru-cache": "^5.1.1",
     "node-sdl2": "^2.1.2",

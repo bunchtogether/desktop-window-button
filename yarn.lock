@@ -952,12 +952,11 @@
   resolved "https://registry.yarnpkg.com/@bunchtogether/exit-handler/-/exit-handler-1.0.0.tgz#350caef9ef93e047080d1139a22e818098eea290"
   integrity sha512-8lk/zWnOiWtS+4XqK/qNpEv8Ktz5AQSyiSxm46n29uCaDQ2DVKdwPFE/HqW8tVAQBWvcQ0uNMqSyYc4X+VIv6g==
 
-"@bunchtogether/picture-in-picture@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@bunchtogether/picture-in-picture/-/picture-in-picture-1.0.6.tgz#3f26e7554d27d1a776021717924a46232a32061b"
-  integrity sha512-jxl89sQIEUIhaOZn5aEJzAGY5KOXwsvL6DvUsFNyo5MBXXb2BQvX5LCBqc8vwcGmJWghzALiezMGMo/7/apNOw==
+"@bunchtogether/picture-in-picture@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@bunchtogether/picture-in-picture/-/picture-in-picture-1.0.8.tgz#ea62a81bc61d9a3a15cfa4650e3ac1dd87bb8a7c"
+  integrity sha512-bz+oIl6WdFaU6tR68VlOF02kpcjvUdtshHr1xpM1E+hCK5Hj8V5Npm3z7S/51YhGnhh8EYOiXHvvdLJBNHPixQ==
   dependencies:
-    "@bunchtogether/exit-handler" "^1.0.0"
     ffi "^2.3.0"
     lru-cache "^5.1.1"
     node-osascript "^2.1.0"

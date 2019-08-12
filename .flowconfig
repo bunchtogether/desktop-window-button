@@ -1,6 +1,8 @@
 [ignore]
 
 .*/node_modules/documentation/*
+.*/node_modules/eslint*
+.*/node_modules/.*test*
 
 [include]
 
